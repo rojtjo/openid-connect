@@ -28,7 +28,7 @@ class JwksController
     }
 
     private function getPublicKey(): string {
-        $publicKey = str_replace('\\n', "\n", config('passport.public_key', ''));
+        $publicKey = str_replace('\\n', "\n", config('passport.public_key') ?? '');
 
         if (!$publicKey) {
             $publicKey = 'file://'.Passport::keyPath('oauth-public.key');
